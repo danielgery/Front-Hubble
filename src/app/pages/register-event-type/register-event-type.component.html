@@ -1,0 +1,57 @@
+<div class="eventType">
+  
+  <div class="fields">
+    <p class="title">Registrar Nova Categoria de Evento</p>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="eventType-input">
+          <input matInput type="text" placeholder="Nome da Categoria" formControlName="catName">
+        </mat-form-field>
+        <!-- <button mat-raised-button type="submit">Submit</button> -->
+        
+    </form>
+    <p class="title">Categorias de Eventos Cadastrados</p>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef > Name </th>
+        <td mat-cell *matCellDef="let element" > {{element.title}}
+          <button type="button" class="deleteButton" mat-icon-button (click)="categoryDelete(element.id)">
+            <mat-icon style="color: #212121">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+      <!-- <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator> -->
+    </table>
+  </div>
+
+
+
+  <div class="fields">
+    <p class="title">Registrar Nova Tag de Evento</p>
+    <form [formGroup]="tagForm" (ngSubmit)="onSubmitTag()">
+        <mat-form-field class="eventTag-input">
+          <input matInput type="text" placeholder="Nome da Tag" formControlName="tagName">
+        </mat-form-field>
+        <!-- <button mat-raised-button type="submit">Submit</button> -->
+        
+    </form>
+    <p class="title">Tags de Eventos Cadastrados</p>
+    <table mat-table [dataSource]="dataSourceTag" class="mat-elevation-z8">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef > Name </th>
+        <td mat-cell *matCellDef="let element" > {{element.title}}
+          <button type="button" class="deleteButton" mat-icon-button (click)="tagDelete(element.id)">
+            <mat-icon style="color: #212121">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+      <!-- <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator> -->
+    </table>
+  </div>
+
+</div>

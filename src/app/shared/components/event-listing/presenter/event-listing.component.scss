@@ -1,0 +1,38 @@
+.header {
+  text-align: center;
+  justify-content: center;
+
+  p {
+    text-align: left;
+    padding: 0 8%;
+  }
+}
+
+.tabs {
+  margin: 5% 0;
+
+  /* Styles for the active tab label */
+  ::ng-deep .mat-tab-label.mat-tab-label-active {
+    background-color: transparent;
+    color: #5c3a93;
+  }
+
+  ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: #5c3a93 !important;
+  }
+
+  ::ng-deep .mat-tab-header {
+    align-self: center;
+  }
+
+  ::ng-deep .mat-tab-body-wrapper {
+    margin: 5%;
+  }
+
+  /* Styles for the ink bar */
+  // ::ng-deep .mat-ink-bar {
+  //   background-color: green;
+  // }
+}
+
+

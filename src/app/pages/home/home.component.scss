@@ -1,0 +1,43 @@
+@import '~swiper/dist/css/swiper.min.css';
+
+.parent {
+    overflow: hidden;
+  }
+
+.home_filter{
+    width: 50%;
+}
+
+.home_title {
+  font-size: 25px;
+  margin: 40px;
+}
+
+.home_subtitle{
+  padding: 20px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+mat-card {
+    padding: 0px
+  }
+
+.card-text {
+    padding: 5px;
+    text-align: center;
+}
+
+.home-header{
+  width: 100%;
+  text-align: center;
+}
+
+.swiper-container {
+  margin: 6.7pt;
+}

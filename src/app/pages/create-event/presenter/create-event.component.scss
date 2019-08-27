@@ -1,0 +1,116 @@
+form {
+  margin: 0 5%;
+  text-align: center;
+}
+
+.additionalHours-form-field {
+  .mat-checkbox {
+    width: 50%;
+    float: right;
+  }
+  .mat-input-element {
+    width: 50%;
+    float: left
+  }
+}
+
+.title-success {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.date-and-time {
+  mat-form-field:first-child {
+    margin-right: 24px !important;
+  }
+
+  .date-hour-forms {
+    justify-content: center;
+    display: inline-flex !important;
+    width: 100%;
+
+    mat-form-field {
+      padding: 0 !important;
+      width: 45%;
+    }
+  }
+
+  .additional-info {
+    justify-content: center;
+    width: 100%;
+
+    mat-form-field {
+      width: 90%;
+    }
+  }
+}
+
+.three-columns {
+  display: block;
+  width: 100%;
+
+  mat-form-field {
+    width: 30%;
+  }
+
+  mat-form-field:nth-child(even) {
+    padding: 0 12px 0 12px !important;
+  }
+}
+
+.two-columns {
+  display: block;
+  width: 100%;
+
+  mat-form-field {
+    width: 22%;
+  }
+
+  mat-form-field:not(:last-child) {
+    padding-inline-end: 12px !important;
+  }
+}
+
+.nextPrevButtons {
+  text-align: center;
+  margin-top: 5%;
+}
+
+#next {
+  background: #212121;
+  color: white;
+  border: 1.5px solid #212121;
+  border-radius: 10px;
+}
+
+#prev {
+  background: transparent;
+  color: #212121;
+  border: 1.5px solid #212121;
+  border-radius: 10px;
+  margin-right: 24px;
+}
+
+.page-main-header {
+  padding: 0 24px 0 24px;
+}
+
+.mobile-form-fields {
+  .date-hour-forms {
+    display: block !important;
+  }
+
+  mat-form-field {
+    width: 100% !important;
+  }
+
+  mat-form-field:nth-child(even) {
+    padding: 0 !important;
+  }
+
+  mat-checkbox {
+    float: left;
+
+  }
+  
+}

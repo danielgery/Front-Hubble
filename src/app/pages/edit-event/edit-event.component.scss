@@ -1,0 +1,50 @@
+.example-card {
+  max-width: 90%;
+  margin:  0 auto;
+  margin-bottom: 30px;
+}
+
+.mat-card-title{
+  font-size: 1.2em;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+form {
+  margin: 0 2%;
+  text-align: center;
+}
+ #add {
+   background: #212121;
+   color: white;
+   border: 1.5px solid #212121;
+   border-radius: 10px;
+ }
+
+ #add-volt {
+  background: #ffffff;
+  color:#212121;
+  border: 1.5px solid #212121;
+  border-radius: 10px;
+}
+ .three-columns {
+   display: block;
+   width: 100%;
+
+   mat-form-field {
+     width: 30%;
+   }
+   mat-form-field:nth-child(even) {
+     padding: 0 12px 0 12px !important;
+   }
+ }
+
+ .page-header {
+   padding: 0 24px 0 24px;
+ }
+section{
+  overflow: hidden;
+}
+

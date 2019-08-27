@@ -1,0 +1,73 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async) && !(isTablet$ | async)">
+    <mat-toolbar>
+      <button id="sidenav-toggle" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="menuToggle()">
+        <mat-icon style="color: #FAFAFA;" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <div>
+        <a class="menu-item" mat-list-item routerLink="/">
+          <mat-icon>star_border</mat-icon>
+          Em destaque
+        </a>
+      </div>
+      <div>
+        <a class="menu-item" mat-list-item routerLink="/novo-evento" *ngIf="authenticated" href="/login">
+          <mat-icon>add_circle_outline</mat-icon>
+          Cadastrar eventos
+        </a>
+      </div>
+      <div *ngIf="authenticated">
+        <a class="menu-item" mat-list-item routerLink="/meus-eventos">
+          <mat-icon>calendar_today</mat-icon>
+          Meus eventos
+        </a>
+      </div>
+      
+      <div *ngIf="authenticated">
+        <a class="menu-item" mat-list-item routerLink="/profile">
+          <mat-icon>person_outline</mat-icon>
+          Perfil
+        </a>
+      </div>
+      <div *ngIf="!authenticated">
+          <a class="menu-item" mat-list-item routerLink="/login">
+            <mat-icon>person_outline</mat-icon>
+            Login
+          </a>
+        </div>
+        <div *ngIf="adminAuthenticated">
+          <a class="menu-item" mat-list-item routerLink="/admin/lista-eventos">
+            <mat-icon>gavel</mat-icon>
+            Eventos para validar
+          </a>
+        </div>
+        <div *ngIf="adminAuthenticated">
+            <a class="menu-item" mat-list-item routerLink="/admin/tag-categoria">
+              <mat-icon>subject</mat-icon>
+              Tags e Categorias
+            </a>
+          </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="menuToggle()" *ngIf="!drawer.opened">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img src ="./assets/logo-h/lunne-cinza.png" height="40px" width="100px">
+      <span class="fill-space"></span>
+      <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li>
+            <a class="md-form my-0" *ngIf="!authenticated" routerLink="/login"> Login </a>
+            <a class="md-form my-0" *ngIf="authenticated" (click)="logout()"> Logout </a>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

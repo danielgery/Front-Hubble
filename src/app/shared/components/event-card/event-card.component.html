@@ -1,0 +1,25 @@
+<div
+  class="card-wrapper"
+  [ngClass]="{'m-card-wrapper': (isOnMobile$ | async)}">
+  <div class="card-content">
+    <h2>{{cardData.title}}</h2>
+    <h3>
+      {{cardData.address.street}},
+      {{cardData.address.number}},
+      {{cardData.address.zipCode}},
+      {{cardData.address.district}} -
+      {{cardData.address.city}}/{{cardData.address.state}}
+    </h3>
+    <h3>De {{cardData.startDate}} a {{cardData.endDate}}</h3>
+    <h3>{{cardData.startHour}} - {{cardData.endHour}}</h3>
+    <h3>R$ {{cardData.price}}</h3>
+  </div>
+  <div class="card-action">
+    <button (click)="onActionClicked()" mat-raised-button>
+      {{cardData.buttonText}}
+    </button>
+    <button routerLink="/event/{{cardData.id}}" *ngIf="cardData.buttonText != 'Ver evento'" mat-raised-button>
+      Ver evento
+    </button>
+  </div>
+</div>

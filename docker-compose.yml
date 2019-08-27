@@ -1,0 +1,18 @@
+# How to run:
+
+version: '2'
+services:
+  paisagemweb:
+    container_name: hubble
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: paisagem-web:latest
+    ports:
+      - "4503:80"
+      - "443:443"
+    networks:
+      - hubble-network
+
+networks:
+    hubble-network:

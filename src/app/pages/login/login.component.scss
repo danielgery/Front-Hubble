@@ -1,0 +1,61 @@
+.page-main-header{
+  height: 50%;
+  min-height: 50%;
+  margin: 100px 150px 100px 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+.login {
+    text-align: center;
+}
+
+form {
+    margin: 5%;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    
+}
+
+
+input {
+    width: 100%;
+}
+
+.title {
+    font-size: 22px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.btn {
+    margin: 10px;
+}

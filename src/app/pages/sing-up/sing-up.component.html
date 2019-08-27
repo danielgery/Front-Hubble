@@ -1,0 +1,31 @@
+<div class="sing-up">
+  <p class="title">Criar uma conta nova</p>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
+    <label>
+      Nome:
+      <mat-form-field class="sing-up-input">
+        <input matInput type="text" formControlName="firstName">
+      </mat-form-field>
+    </label>
+  
+    <label>
+      Sobrenome:
+      <mat-form-field class="sing-up-input">
+        <input matInput type="text" formControlName="lastName">
+      </mat-form-field>
+    </label>
+    <label>
+      E-mail:
+      <mat-form-field class="sing-up-input">
+        <input matInput type="text" formControlName="email">
+      </mat-form-field>
+    </label>
+    <label>
+      Senha:
+      <mat-form-field class="sing-up-input">
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+    </label>
+    <button mat-raised-button type="submit">Submit</button>
+  </form>
+</div>

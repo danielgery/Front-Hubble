@@ -1,0 +1,68 @@
+.card-wrapper {
+  display: flex;
+  padding: 8px 16px 0 0;
+  margin: 5% 10%;
+  border-left: 7px solid #5c3a93;
+  border-radius: 4px;
+  -webkit-box-shadow: 4px 6px 16px 0px rgba(0, 0, 0, 0.51);
+  -moz-box-shadow: 4px 6px 16px 0px rgba(0, 0, 0, 0.51);
+  box-shadow: 4px 6px 16px 0px rgba(0, 0, 0, 0.51);
+
+  .card-content {
+    flex-grow: 2;
+    padding: 8px 16px;
+
+    h2 {
+      margin: 8px 0;
+      font-weight: 500;
+      font-size: 18px;
+    }
+    h3 {
+      margin: 8px 0;
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+
+  .card-action {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+
+    .mat-raised-button {
+      background-color: #5c3a93;
+      color: #ffffff;
+      width: 170px;
+    }
+    button:first-child{
+      margin-block-end: 8px
+    }
+    .mat-raised-button:hover{
+      background-image: linear-gradient(to right, #8E24AA , #5c3a93);
+    }
+  }
+}
+
+.m-card-wrapper {
+  display: block;
+  .card-action {
+    padding: 32px 0;
+  }
+}
+
+::ng-deep .mat-tab-body.mat-tab-body-active {
+  overflow-x: unset;
+  overflow-y: unset;
+}
+
+::ng-deep .mat-tab-body-content {
+  overflow: unset !important;
+}
+
+::ng-deep .mat-tab-body-wrapper {
+  overflow: unset;
+}

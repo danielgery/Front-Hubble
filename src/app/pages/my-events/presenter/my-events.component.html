@@ -1,0 +1,5 @@
+<app-event-listing
+  *ngIf="pageData"
+  [data]="pageData"
+  (selectedEventCard)="onEventCardSelected($event)"
+></app-event-listing>

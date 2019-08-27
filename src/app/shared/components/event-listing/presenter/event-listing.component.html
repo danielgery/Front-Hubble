@@ -1,0 +1,18 @@
+<section class="content-wrapper">
+  <section class="header">
+    <h1>{{pageData.header}}</h1>
+    <p>{{pageData.subHeader}}</p>
+  </section>
+
+  <section class="tabs">
+    <mat-tab-group>
+      <mat-tab *ngFor="let tab of pageData.tabs" label="{{tab.title}}">
+        <app-event-card
+          *ngFor="let event of tab.cards.events"
+          (actionButtonClicked)="cardActionHandler($event)"
+          [data]="event">
+        </app-event-card>
+      </mat-tab>
+    </mat-tab-group>
+  </section>
+</section>

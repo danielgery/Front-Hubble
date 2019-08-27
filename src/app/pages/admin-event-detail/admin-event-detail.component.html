@@ -1,0 +1,166 @@
+<div class="content_box">
+
+  <div style="vertical-align: middle; display: block;">
+
+    <div class="event_span">
+      <span>Evento</span>
+    </div>
+
+    <div class="button_place">
+      <button class="reprove_button" (click)="rejeitarEvento(event?._id)">Recusar</button>
+      <!-- usar ng-click pra fazer a ação de mudar o status! -->
+    </div>
+
+    <div class="button_place">
+      <button (click)="confirmar();" style="color: white;" class="aprove_button">Aprovar</button>
+    </div>
+
+  </div>
+
+</div>
+
+<br>
+
+<div class="first_info">
+  <div>
+    <span>Status: </span>
+    <span style="color: #5C3993; font-weight: normal;">aguardando.</span>
+  </div>
+  <br>
+  <p>Criado dia {{event?.createdAt}}</p>
+</div>
+
+<div class="wrapper">
+  <div class="box1 image_div">
+    <img class="event_image" style="object-fit: cover;" [src]="event?.picture" alt="Imagem do Evento" title="Imagem do Evento">
+  </div>
+
+  <div class="content_box box2">
+    <div>
+      <div>
+        <span class="content_title">Título</span>
+      </div>
+      <div style="margin-top: 8px">
+        <p class="bordered-box">{{event?.title}}</p>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <span class="content_title content_title_plus_padding">Criado por</span>
+      </div>
+      <div style="margin-top: 8px">
+        <p class="bordered-box">{{event?.createdBy.firstName}}</p>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <span class="content_title content_title_plus_padding">Preço</span>
+      </div>
+      <div style="margin-top: 8px">
+        <p class="bordered-box centralize_text">{{event?.price}}</p>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <span class="content_title content_title_plus_padding">Horas complementares</span>
+      </div>
+      <div style="margin-top: 8px">
+        <p class="bordered-box centralize_text">{{event?.hours}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content_box">
+
+  <div>
+    <div>
+      <span class="content_title content_title_plus_padding">Data de início</span>
+    </div>
+    <div style="margin-top: 8px">
+      <p class="bordered-box centralize_text"> {{event?.startDate}} - {{event?.startHour}} </p>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <span class="content_title content_title_plus_padding">Data de término</span>
+    </div>
+    <div style="margin-top: 8px">
+      <p class="bordered-box centralize_text"> {{event?.endDate }} - {{event?.endHour}} </p>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <span class="content_title content_title_plus_padding">Endereço</span>
+    </div>
+    <div style="margin-top: 8px">
+      <div class="bordered-box">
+        <p >{{ event?.address.street}}, {{event?.address.complements}} - {{event?.address.district}}, {{event?.address.city}} - {{event?.address.state}}</p>
+        <p>CEP: {{event?.address.zipCode}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <div>
+        <span class="content_title content_title_plus_padding">Descrição</span>
+      </div>
+      <div style="margin-top: 8px">
+        <p class="bordered-box">{{event?.description}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <div>
+        <span class="content_title content_title_plus_padding">Observação</span>
+      </div>
+      <div style="margin-top: 8px">
+        <p class="bordered-box">{{event?.observation}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <span class="content_title content_title_plus_padding">Categoria</span>
+    </div>
+    <div style="margin-top: 8px">
+      <p class="bordered-box centralize_text">{{event?.category.title}}</p>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <span class="content_title content_title_plus_padding">Tags</span>
+    </div>
+    <div style="margin-top: 8px">
+      <div class="bordered-box" *ngFor="let item of event?.tag">
+        {{item.title}}
+        <!-- <p>Lorem; ipsum; dolor; sit amet; consectetur; adipiscing; elit; sed do eiusmod; tempor; incididunt; ut labore; et dolore; magna; aliqua;</p> -->
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="button_wrapper">
+      <div class="b1">
+        <button class="second_aprove_button">Aprovar</button>
+      </div>
+      <!-- <div class="b2">a</div> -->
+      <div class="b3">
+        <button class="second_reprove_button">Recusar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div style="margin-bottom: 24px;"></div>

@@ -1,0 +1,119 @@
+<div class="content_box">
+    <a class="throw_left">
+        <!-- favoritar -->
+        <small (click)="favoritar();" *ngIf="favorito === false  && logado === true">
+            <i style="vertical-align: -4.5px; font-size: 1.3em;" class="material-icons favorite_class">star_border</i>
+            <span> Favoritar evento</span>
+        </small>
+        <small (click)="favoritar();" *ngIf="favorito === true  && logado === true">
+            <i style="vertical-align: -4.5px; font-size: 1.3em;" class="material-icons favorite_class">star</i>
+            <span>Evento favoritado</span>
+        </small>
+    </a>
+    <div *ngIf="event?.createdBy._id === currentUser?.id">
+        <a class="throw_right">
+            <!-- editar -->
+            <i [routerLink]="['/edit-event', event?._id]" style="vertical-align: -4.5px; font-size: 1.3em;"
+                class="material-icons">border_color</i>
+        </a>
+        <a class="throw_right" (click)="showDialog = !showDialog">
+            <!-- deletar -->
+            <i style="vertical-align: -4.5px; font-size: 1.3em;" class="material-icons">delete</i>
+        </a>
+    </div>
+</div>
+
+<div class="wrapper spacing">
+    <div class="box1">
+        <img style="object-fit: cover;" [src]="event?.picture" alt="Event Image">
+    </div>
+
+    <div class="box3">
+        <h2>{{event?.title}}</h2>
+        <h5>{{event?.category.title}}</h5>
+        <!-- <div style="padding-top: 32px; justify-content: space-around; margin-left: 15px;">
+            <a  href="">Tag 1</a>
+            <a  href="">Tag 2</a>
+            <a  href="">Tag 3</a>
+        </div> -->
+        <p>{{event?.description}}</p>
+
+        <p>{{event?.observation}}</p>
+
+    </div>
+
+    <div class="content_box box2">
+        <div>
+            <i style="vertical-align: -5px;" class="material-icons"> calendar_today </i>
+            <span> {{event?.startDate}} até {{event?.endDate}} </span>
+        </div>
+        <div>
+            <i style="vertical-align: -5px;" class="material-icons"> access_time </i>
+            <span> {{event?.startHour}} até {{event?.endHour}} </span>
+        </div>
+        <div>
+            <i style="vertical-align: -5px;" class="material-icons"> tag_faces </i>
+            <span> {{event?.vacancies}} vagas disponíveis </span>
+        </div>
+        <div>
+            <i style="vertical-align: -5px;" class="material-icons"> school </i>
+            <div *ngIf="event?.hours == 0">
+                <span>Sem horas complementares</span>
+            </div>
+            <div *ngIf="event?.hours != 0">
+                <span style="display: block"> {{event?.hours}} horas complementares </span>
+            </div>
+        </div>
+        <div>
+            <i style="vertical-align: -5px;" class="material-icons"> location_on </i>
+            <span> {{event?.address.street}},
+                {{event?.address.complements}},
+                {{event?.address.district}}, {{event?.address.city}} - {{event?.address.state}} </span>
+        </div>
+    </div>
+</div>
+
+<div class="content_box" style="margin-bottom: 50px;">
+    <div style="align-content: center;">
+        <b style="display: block;">Preço: {{event?.price}} reais.</b>
+        <button (click)="goToLink();" class="default_button">Inscreva-se</button>
+        <button (click)="confirmar();" class="default_button"
+            *ngIf="presenca === false && logado === true">Confirmar presença</button>
+        <button (click)="confirmar();" class="default_button" *ngIf="presenca === true && logado === true"
+            style="background-color:#af031d;">Cancelar presença</button>
+    </div>
+</div>
+<div>
+    <i style="vertical-align: -5px;" class="material-icons"> school </i>
+    <span style="display: block"> {{event?.hours}} horas complementares </span>
+</div>
+<div>
+    <i style="vertical-align: -5px;" class="material-icons"> location_on </i>
+    <span style="display: block"> {{event?.address.street}},
+        {{event?.address.complements}},
+        {{event?.address.district}}, {{event?.address.city}} - {{event?.address.state}} </span>
+</div>
+
+<div class="content_box" style="margin-bottom: 50px;">
+    <div style="align-content: center;">
+        <b style="display: block;">Preço: {{event?.price}} reais.</b>
+        <button (click)="confirmar();" class="default_button" *ngIf="presenca === false && logado === true">Confirmar
+            presença</button>
+        <button (click)="confirmar();" class="default_button" *ngIf="presenca === true && logado === true"
+            style="background-color:#af031d;">Cancelar presença</button>
+    </div>
+</div>
+
+<app-dialog-delete [(visible)]="showDialog">
+    <h2 style="background-color: #a9a9a9;color: white;padding: 20px;">Excluir evento</h2>
+    <p style="margin-top: 30px;margin-left: 20px;margin-bottom: 30px;">Tem certeza de que deseja excluir o evento
+        selecionado?</p>
+    <hr>
+    <div style="padding: 15px;">
+        <button style="padding-left: 8px;padding-right: 8px;" id="add" mat-raised-button color="danger"
+            (click)="showDialog = !showDialog" class="btn">Cancelar</button>
+        <button style="margin-left: 10px; padding-left: 8px;padding-right: 8px;" id="add" mat-raised-button
+            color="danger" routerLink="/" (click)="deletar(event?._id); showDialog = !showDialog" class="btn">Confirmar
+        </button>
+    </div>
+</app-dialog-delete>
